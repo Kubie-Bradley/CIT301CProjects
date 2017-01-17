@@ -8,7 +8,7 @@ var setOperations = new Set();
 
 QUnit.test( "Intersection Test", function( assert ) {
     var listA = ['Bill', 'Mary','Peter','Sam','Mark','Ann','Susan', 'Mike',
-			           'James', 'Steve', 'Joseph', 'Jane', 'Bob', 'Wayne', 'Connie',
+                 'James', 'Steve', 'Joseph', 'Jane', 'Bob', 'Wayne', 'Connie',
                  'Jim', 'Bridger', 'Luke', 'Issac', 'Emma', 'Ruth'];
 
     var listB = ['Mary','Sam','Ann', 'Peter', 'Annabelle', 'Harriet',
