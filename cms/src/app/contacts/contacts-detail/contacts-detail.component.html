@@ -1,0 +1,24 @@
+
+<div class="panel panel-default pull-left">
+  <div class="panel-heading">
+    <div>
+      <h3 class="pull-left">{{selectedContact?.name}}</h3>
+    </div>
+    <div>
+      <img src="{{selectedContact?.imageUrl}}" alt="pic" class="img-responsive">
+    </div>
+    <div class="col-xs-12">
+      <button class="btn btn-primary">Edit</button>
+      <button class="btn btn-danger">Delete</button>
+    </div>
+    <div class="clearfix"></div>
+  </div>
+  <div class="panel-body">
+    <h4>Email: {{selectedContact?.email}}</h4>
+    <h4>Phone: {{selectedContact?.phone}}</h4>
+  </div>
+  <div>
+    <cms-contacts-group [selectedContact]="selectedContact"></cms-contacts-group>
+  </div>
+</div>
+
