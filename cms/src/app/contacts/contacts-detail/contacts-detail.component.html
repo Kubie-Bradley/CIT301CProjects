@@ -1,15 +1,20 @@
-
-<div class="panel panel-default pull-left">
+<div class="panel panel-default">
   <div class="panel-heading">
-    <div>
-      <h3 class="pull-left">{{selectedContact?.name}}</h3>
+    <div class="row">
+      <div class="col-md-12">
+        <h3 class="pull-left">{{selectedContact?.name}}</h3>
+      </div>
     </div>
-    <div>
-      <img src="{{selectedContact?.imageUrl}}" alt="pic" class="img-responsive">
-    </div>
-    <div class="col-xs-12">
-      <button class="btn btn-primary">Edit</button>
-      <button class="btn btn-danger">Delete</button>
+    <div class="row" style="display: flex; align-items: center;">
+      <div class="col-md-6">
+        <img src="{{selectedContact?.imageUrl}}" class="img-responsive" style="max-height: 75px;">
+      </div>
+      <div class="col-md-6">
+        <span class="pull-right">
+        <button class="btn btn-primary">Edit</button>
+        <button class="btn btn-danger">Delete</button>
+          </span>
+      </div>
     </div>
     <div class="clearfix"></div>
   </div>
@@ -17,8 +22,6 @@
     <h4>Email: {{selectedContact?.email}}</h4>
     <h4>Phone: {{selectedContact?.phone}}</h4>
   </div>
-  <div>
-    <cms-contacts-group [selectedContact]="selectedContact"></cms-contacts-group>
-  </div>
 </div>
+
 

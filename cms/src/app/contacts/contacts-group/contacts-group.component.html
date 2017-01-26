@@ -1,15 +1,22 @@
-<div class="panel panel-default pull-left">
-<div class="panel-heading">
-  <div>
-    <h3 class="pull-left">{{selectedContact?.name}}</h3>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <div class="row" style="display: flex; align-items: center;">
+      <div class="col-md-6">
+        <div>
+          <h3 class="pull-left" style="margin-top: 10px;">{{selectedContact?.name}}</h3>
+        </div>
+      </div>
+
+    <div class="col-md-6">
+      <span class="pull-right">
+      <button class="btn btn-primary">Edit</button>
+      <button class="btn btn-danger">Delete</button>
+        </span>
+    </div>
+    </div>
+    <div class="clearfix"></div>
   </div>
-  <div class="col-xs-12">
-    <button class="btn btn-primary">Edit</button>
-    <button class="btn btn-danger">Delete</button>
-  </div>
-  <div class="clearfix"></div>
-</div>
-  <!--<div class="panel-body">
+  <div class="panel-body">
     <cms-contact-item></cms-contact-item>
-  </div>-->
+  </div>
 </div>
