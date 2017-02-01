@@ -1,12 +1,12 @@
 import { Component, OnInit, Input } from '@angular/core';
-import {Contacts} from "../contacts";
+import {Contact} from "../contacts";
 
 @Component({
   selector: 'cms-contacts-detail',
   templateUrl: './contacts-detail.component.html'
 })
 export class ContactsDetailComponent implements OnInit {
- @Input() selectedContact: Contacts;
+ @Input() selectedContact: Contact;
   constructor() { }
 
   ngOnInit() {

@@ -17,6 +17,8 @@
     <div class="clearfix"></div>
   </div>
   <div class="panel-body">
-    <cms-contact-item></cms-contact-item>
+    <!--<h4 class="pull-left" style="margin-top: 10px;">{{selectedContact?.name}}</h4>-->
+    <cms-contact-item *ngFor="let groups of groupContact" [contact]="contact" (click)="onSelected(contact)"></cms-contact-item>
+    <!--<img src="{{selectedContact?.imageUrl}}" class="img-responsive pull-right" style="max-height: 75px;">-->
   </div>
 </div>
