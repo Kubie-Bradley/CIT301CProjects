@@ -6,6 +6,7 @@ Array.prototype.equals = function( array ) {
 
 var setOperations = new Set();
 
+// This will test the intersection
 QUnit.test( "Intersection Test", function( assert ) {
     var listA = ['Bill', 'Mary','Peter','Sam','Mark','Ann','Susan', 'Mike',
                  'James', 'Steve', 'Joseph', 'Jane', 'Bob', 'Wayne', 'Connie',
