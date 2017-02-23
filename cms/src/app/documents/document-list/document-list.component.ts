@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DocumentsService} from "../documents.service";
+import {Document} from  '../document';
 
 @Component({
   selector: 'cms-document-list',
@@ -13,7 +14,7 @@ export class DocumentListComponent implements OnInit {
   constructor(private documentService: DocumentsService) { }
 
   ngOnInit() {
-    this.documents = this.documentService.getMessages();
+    this.documents = this.documentService.getDocuments();
   }
 
 }

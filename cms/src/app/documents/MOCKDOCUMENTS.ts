@@ -1,6 +1,3 @@
-
-import { Document } from './document';
-
 export var MOCKDOCUMENTS: any[] = [
     {
       id: '1',

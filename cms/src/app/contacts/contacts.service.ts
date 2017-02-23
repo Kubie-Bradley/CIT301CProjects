@@ -66,7 +66,7 @@ export class ContactsService {
   }
 
   getContact(idx: number){
-    Array.prototype.indexOf(this.contacts, idx);
+    return this.contacts[idx];
   }
 
 

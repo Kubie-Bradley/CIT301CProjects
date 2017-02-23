@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import {MOCKDOCUMENTS} from './MOCKDOCUMENTS';
+import { Document } from './document';
 
 @Injectable()
 export class DocumentsService {
@@ -8,13 +9,16 @@ export class DocumentsService {
     this.documents = MOCKDOCUMENTS;
   }
 
-  getMessages(){
+  getDocuments(){
     return this.documents;
 
   }
 
-  getMessage(idx: number){
-    Array.prototype.indexOf(this.documents, idx);
+  getDocument(idx: number){
+    return this.documents[idx];
   }
 
+  deleteDocument(document: Document){
+    this.documents.splice(this.documents.indexOf(document), 1);
+  }
 }

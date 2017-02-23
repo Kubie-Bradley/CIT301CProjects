@@ -3,13 +3,13 @@
   <div class="panel-heading">
     <div class="row pad-left-right" >
         <span class="pull-left title">Messages</span>
-        <a class="btn btn-success pull-right">New Message</a>
+        <a class="btn btn-success pull-right" [routerLink]="['new']">New Message</a>
     </div>
   </div>
   <div class="panel-body">
     <div class="row">
       <div class="col-xs-12">
-          <cms-message-item></cms-message-item>
+          <cms-message-item *ngFor="let message of messages" [message]="message"></cms-message-item>
       </div>
     </div>
   </div>

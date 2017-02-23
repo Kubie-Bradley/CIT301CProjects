@@ -3,9 +3,8 @@
   <div class="col-md-4 pull-left">
     <cms-contact-list (selectedContact)="selectedContact = $event"></cms-contact-list>
   </div>
-  <div class="col-md-4" *ngIf="selectedContact !== null">
-    <cms-contacts-detail *ngIf="selectedContact.group === null" [selectedContact]="selectedContact"></cms-contacts-detail>
-    <cms-contacts-group *ngIf="selectedContact.group !== null" [selectedContact]="selectedContact"></cms-contacts-group>
+  <div class="col-md-4"> <!--*ngIf="selectedContact !== null"-->
+    <router-outlet></router-outlet>
   </div>
   <div class="col-md-2"></div>
 </div>

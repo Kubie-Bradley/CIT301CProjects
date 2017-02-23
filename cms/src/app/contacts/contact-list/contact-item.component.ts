@@ -8,6 +8,8 @@ import { Contact } from '../contacts';
 export class ContactItemComponent implements OnInit {
   @Input() contact: Contact;
 
+  @Input() contactIdx: number;
+
   constructor() { }
 
   ngOnInit() {

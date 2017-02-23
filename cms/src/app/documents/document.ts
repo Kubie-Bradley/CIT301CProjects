@@ -1,3 +1,3 @@
 export class Document {
-  constructor(public documentId, public docName, public docDescription, public docUrl, public docChildren){}
+  constructor(public id: string, public name: string, public url: string, public children: Document[] = null){}
 }
