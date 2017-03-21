@@ -1,12 +1,51 @@
-import { Injectable } from '@angular/core';
+import {Injectable, EventEmitter} from '@angular/core';
 import {Contact} from "./contacts";
+import {Response, Http, Headers} from "@angular/http";
+import "rxjs/Rx";
 
 @Injectable()
 export class ContactsService {
 
   private contacts: Contact[] = [];
+  getContactsEmitter = new EventEmitter<Contact[]>();
+  currentContact: Contact;
+  CurrentContactObj: Contact;
+  currentContactId: string;
 
-  constructor() { }
+  constructor(private http: Http) {
+    this.initContacts();
+    this.currentContactId = '1';
+    // this.documents = MOCKDOCUMENTS;
+  }
+
+  getContactById(id: string): Contact {
+    return this.contacts.find((contact: Contact)=> contact.id === id);
+  }
+
+  storeContacts() {
+    const body = JSON.stringify(this.contacts);
+    const headers = new Headers({
+      'Content-Type': 'application/json'
+    });
+    return this.http.put('https://kubiebcms.firebaseio.com/contacts.json', body, {headers: headers}).toPromise();
+  }
+
+  initContacts(){
+    return this.http.get('https://kubiebcms.firebaseio.com/contacts.json')
+      .map((response: Response) => response.json())
+      .subscribe(
+        (data: Contact[]) => {
+          this.contacts = data;
+          this.currentContact = this.getContactById("7");
+          this.contacts = this.contacts.sort(this.compareNames);
+          this.getContactsEmitter.emit(this.contacts);
+        }
+      );
+  }
+
+  getCurrentContact(){
+    return this.currentContact;
+  }
 
   getContacts() {
     // individual contacts
@@ -67,6 +106,39 @@ export class ContactsService {
 
   getContact(idx: number){
     return this.contacts[idx];
+  }
+
+  addContact(contact: Contact){
+    if(!contact)
+      return;
+      this.contacts.push(contact)
+      this.contacts = this.contacts.sort(this.compareNames);
+      this.storeContacts();
+
+  }
+
+  updateContact(oldContact: Contact, newContact: Contact) {
+    if (!oldContact || !newContact){
+      return;
+    }
+    this.contacts[this.contacts.indexOf(oldContact)] = newContact;
+    this.contacts = this.contacts.sort(this.compareNames);
+    this.storeContacts();
+  }
+
+  deleteContact(contact: Contact){
+    if (!contact){
+      return;
+    }
+
+    const pos = this.contacts.indexOf(contact);
+    if (pos < 0) {
+      return;
+    }
+
+    this.contacts.splice(pos, 1);
+    this.contacts = this.contacts.sort(this.compareNames);
+    this.storeContacts();
   }
 
 
