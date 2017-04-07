@@ -20,12 +20,14 @@ export class MessageNewComponent implements OnInit {
               private messageService: MessagesService,
               private router: Router
               ) {
-    this.sender = this.contactService.getCurrentContact()
+    this.sender = new Contact('101', '','','','');
   }
 
+
+
   onSubmit(value){
-    const newMessage = new Message("", this.sender.name,"",value.message);
-    this.messageService.addMessage(newMessage);
+    const newMessage = new Message("","",value.message, this.sender);
+    this.messageService.addMessage(newMessage).subscribe();
     this.router.navigate(['messages']);
   }
 

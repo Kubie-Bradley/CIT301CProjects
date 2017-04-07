@@ -8,12 +8,11 @@
         <input
           type="text"
           id="message"
-          required
           class="form-control"
           size="120"
           max="255"
           name="message"
-          [ngModel]="message.text"
+          [ngModel]="message?.text"
           required
           pattern="^[a-zA-Z ]*$"
           #message="ngModel">

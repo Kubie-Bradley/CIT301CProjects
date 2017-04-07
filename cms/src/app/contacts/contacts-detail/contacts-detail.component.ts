@@ -11,7 +11,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 export class ContactsDetailComponent implements OnInit {
  @Input() selectedContact: Contact;
   private subscription: Subscription;
-  private contactIdx: number;
+  private contactIdx: String;
   private contact: Contact;
   private contactGroup: Contact[]=[];
 

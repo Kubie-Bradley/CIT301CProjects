@@ -30,8 +30,8 @@
             max="255"
             [ngModel]="contact?.email"
             name="contactEmail"
-            #email="ngModel"
-            pattern="\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b">
+            #email="ngModel">
+            <!--pattern="\b[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}\b">-->
           <div class="alert alert-danger" *ngIf="!email.valid">
             Email is not correct
           </div>
@@ -57,7 +57,7 @@
             class="form-control"
             size="150"
             max="255"
-            [ngModel]="contact.imageUrl"
+            [ngModel]="contact?.imageUrl"
             name="contactImage">
         </div>
       </div>

@@ -13,7 +13,7 @@ export class DocumentEditComponent implements OnInit {
 
   private subscription: Subscription; // route subscription
   private oldDocument: Document; // ref. to old document
-  private documentIdx: number;
+  private documentIdx: string;
   private editMode: boolean = false; // in edit mode flag?
 
   constructor(private documentService: DocumentsService,
@@ -41,14 +41,12 @@ export class DocumentEditComponent implements OnInit {
   }
 
   onSubmit(value){
-    let newDocument = new Document(null,
-                                   value.documentTitle,
-                                   value.documentUrl, null);
+    let newDocument = new Document(null, value.documentTitle, value.documentUrl, value.documentDesc);
     if (this.editMode){
       newDocument.id = this.oldDocument.id;
-      this.documentService.updateDocument(this.oldDocument, newDocument);
+      this.documentService.updateDocument(newDocument).subscribe();
     } else {
-      this.documentService.addDocument(newDocument);
+      this.documentService.addDocument(newDocument).subscribe();
     }
 
     this.router.navigate(['documents']);

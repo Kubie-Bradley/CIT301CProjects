@@ -14,7 +14,7 @@ export class ContactEditComponent implements OnInit {
   private subscription: Subscription;
   private editMode: boolean = false;
   private hasGroup: boolean = false;
-  private contactIdx: number;
+  private contactIdx: String;
   private oldContact: Contact;
   private groupContacts: Contact[]=[];
   private invalidGroupContact: boolean = true;
@@ -47,9 +47,9 @@ export class ContactEditComponent implements OnInit {
     let newContact = new Contact(null, value.name, value.email, value.phone, value.imageUrl, null);
     if(this.editMode){
       newContact.id = this.oldContact.id;
-      this.contactService.updateContact(this.oldContact, newContact);
+      this.contactService.updateContact(newContact).subscribe();
     } else {
-      this.contactService.addContact(newContact);
+      this.contactService.addContact(newContact).subscribe();
     }
 
     this.router.navigate(['contacts']);

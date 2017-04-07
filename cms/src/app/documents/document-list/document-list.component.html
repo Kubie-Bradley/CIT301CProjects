@@ -10,7 +10,7 @@
   <div class="panel-body">
     <div class="center-panel">
 
-      <cms-document-item *ngFor="let document of documents, let i = index" [document]="document" [documentIdx]="i"></cms-document-item>
+      <cms-document-item *ngFor="let document of documents" [document]="document" [documentIdx]="document.id"></cms-document-item>
 
     </div>
   </div>

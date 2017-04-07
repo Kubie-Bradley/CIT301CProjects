@@ -13,7 +13,7 @@ import {WindRefService} from "../../wind-ref.service";
 export class DocumentViewComponent implements OnInit {
 
   private subscription: Subscription;
-  private documentIdx: number;
+  private documentIdx: string;
   document: Document;
   private nativeWindow: any;
 
@@ -47,7 +47,7 @@ export class DocumentViewComponent implements OnInit {
   }
 
   onDelete(){
-    this.documentService.deleteDocument(this.document);
+    this.documentService.deleteDocument(this.document).subscribe();
     this.router.navigate(['/documents']);
   }
 
